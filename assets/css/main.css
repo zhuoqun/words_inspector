@@ -1,0 +1,24 @@
+#title {
+  font-size: 1.8em;
+  margin: 1em 0;
+}
+
+#tagline {
+  font-size: 14px;
+  color: #666;
+}
+
+#articleInput {
+  width: 100%;
+  height: 400px;
+  margin: 0.5em 0 1em;
+}
+
+.controls label, .controls input {
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+#ft {
+  margin: 4em auto 2em;
+}

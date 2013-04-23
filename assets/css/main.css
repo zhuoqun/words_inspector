@@ -6,6 +6,7 @@
 #tagline {
   font-size: 14px;
   color: #666;
+  margin-left: 1em;
 }
 
 #articleInput {
@@ -20,5 +21,27 @@
 }
 
 #ft {
-  margin: 4em auto 2em;
+  margin: 6em auto 2em;
+}
+
+.show-red span.red, .show-ugly span.ugly {
+  font-size: 1.1em;
+  padding: 0 4px;
+}
+
+.show-red span.red, #redWords span {
+  color: red;
+}
+
+.show-ugly span.ugly, #uglyWords span {
+  color: blue;
+}
+
+.sidebar h2 {
+  font-size: 1.2em;
+  margin: 1.4em 0 .5em;
+}
+
+.sidebar label {
+  display: inline;
 }

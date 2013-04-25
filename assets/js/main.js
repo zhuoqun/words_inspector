@@ -81,7 +81,7 @@ $(document).ready(function () {
 
   $('#startCheck').click(function (e) {
     e.preventDefault();
-    var text = articleInput.val().trim(), result, i, tmp;
+    var text = $.trim(articleInput.val()), result, i, tmp;
     if (text.length <= 0) {
       return;
     }

@@ -30,6 +30,10 @@ $(document).ready(function () {
       }
     }
 
+    redStatsArr.sort(function (a, b) {
+      return (a.count === b.count) ? 0 : (a.count > b.count ? -1 : 1);
+    });
+
     // ugly words
     l = UGLY_WORDS.length;
     for (i=0; i< l; i += 1) {
@@ -38,14 +42,18 @@ $(document).ready(function () {
       match = text.match(reg);
       count = match ? match.length : 0;
       percent = Math.round(count / total * 10000) / 100.00;
-      if (percent > 2) {
+      if (percent > 0) {
         uglyStatsArr.push({
           word: word,
-          percent: percent + "%"
+          percent: percent
         });
         text = text.replace(reg, '<span class="ugly">' + word + '</span>');
       }
     }
+
+    uglyStatsArr.sort(function (a, b) {
+      return (a.percent === b.percent) ? 0 : (a.percent > b.percent ? -1 : 1);
+    });
 
     return {
       redStats: redStatsArr,
@@ -63,7 +71,7 @@ $(document).ready(function () {
         if (tmp.count) {
           node.append('<li><span>' + tmp.word + '</span> x ' + tmp.count + '</li>');
         } else {
-          node.append('<li><span>' + tmp.word + '</span> > ' + tmp.percent + '</li>');
+          node.append('<li><span>' + tmp.word + '</span> > ' + tmp.percent + ' %</li>');
         }
       }
     } else {

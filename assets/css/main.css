@@ -51,6 +51,14 @@
   display: inline;
 }
 
+.show-red #redWords, .show-ugly #uglyWords {
+  display: block;
+}
+
+#redWords, #uglyWords {
+  display: none;
+}
+
 #reInput {
   margin-top: 2em;
 }

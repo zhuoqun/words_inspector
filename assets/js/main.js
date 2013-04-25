@@ -6,6 +6,7 @@ $(document).ready(function () {
   var output = $('#output');
   var redWordsList = $('#redWords ul');
   var uglyWordsList = $('#uglyWords ul');
+  var toggleCtrl = $('.toggleCtrl');
 
   articleInput.focus();
 
@@ -72,7 +73,10 @@ $(document).ready(function () {
 
   $('#startCheck').click(function (e) {
     e.preventDefault();
-    var text = articleInput.val(), result, i, tmp;
+    var text = articleInput.val().trim(), result, i, tmp;
+    if (text.length <= 0) {
+      return;
+    }
 
     result = countWords(text);
     renderStats(result.redStats, redWordsList);
@@ -84,12 +88,25 @@ $(document).ready(function () {
     resultWrap.show();
   });
 
+  toggleCtrl.change(function (e) {
+    var className = $(this).attr('data-class');
+
+    if ($(this).is(':checked')) {
+      output.addClass(className);
+      $('#stats').addClass(className);
+    } else {
+      output.removeClass(className);
+      $('#stats').removeClass(className);
+    }
+  });
+
   $('#reInput').click(function (e) {
     e.preventDefault();
 
     output.html('');
     redWordsList.html('');
     uglyWordsList.html('');
+    toggleCtrl.prop('checked', true).trigger('change');
 
     resultWrap.hide();
     inputWrap.show();

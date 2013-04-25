@@ -71,7 +71,7 @@ $(document).ready(function () {
         if (tmp.count) {
           node.append('<li><span>' + tmp.word + '</span> x ' + tmp.count + '</li>');
         } else {
-          node.append('<li><span>' + tmp.word + '</span> > ' + tmp.percent + ' %</li>');
+          node.append('<li><span>' + tmp.word + '</span> ' + tmp.percent + ' %</li>');
         }
       }
     } else {
